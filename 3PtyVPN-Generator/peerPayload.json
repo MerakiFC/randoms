@@ -1,0 +1,48 @@
+
+{"peers": [
+    {
+        "name": "",
+        "ikeVersion": "2",
+        "secret": "somerandomsecret",
+        "privateSubnets": [
+            "x.x.x.x/x"
+        ],
+        "ipsecPolicies": {
+            "ikeCipherAlgo": [
+                "aes256"
+            ],
+            "ikeAuthAlgo": [
+                "sha256"
+            ],
+            "ikePrfAlgo": [
+                "prfsha1"
+            ],
+            "ikeDiffieHellmanGroup": [
+                "group14"
+            ],
+            "ikeLifetime": 14400,
+            "childCipherAlgo": [
+                "aes256"
+            ],
+            "childAuthAlgo": [
+                "sha1"
+            ],
+            "childPfsGroup": [
+                "disabled"
+            ],
+            "childLifetime": 3600
+        },
+        "networkTags": [
+            "peer#"
+        ],
+        "localId": "local#@email.com",
+        "remoteId": "remote#@email.com",
+        "isRouteBased": false,
+        "priorityInGroup": 1,
+        "publicIp": "x.x.x.x",
+        "network": {
+            "names": [],
+            "ids": []
+        }
+    }
+]}
