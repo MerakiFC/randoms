@@ -42,7 +42,7 @@ def integer_to_subnet(integer_value) -> str:
     third_octet = integer_value & 0xFF          # Lower 8 bits
     
     generated_subnet = f"10.{second_octet}.{third_octet}.0/24"
-    print(f"{integer_value} - {generated_subnet}")
+    #print(f"{integer_value} - {generated_subnet}") #optional, for debugging purposes
     return generated_subnet #f"10.{second_octet}.{third_octet}.0/24"
 
 
@@ -83,10 +83,12 @@ def send_vpn_peers(payload):
     try:
         response = requests.put(url, headers=headers, json=payload)
         print(f"Status Code: {response.status_code}")
+        #print(f"Request Headers: {response.request.headers}")
+        print(f"Content-Length in Request Headers: {response.request.headers.get('Content-Length')} bytes")
         
         if response.status_code in [200, 201]:
-            print("✅ VPN peers created successfully!")
-            print("Response:", response.json())
+            print("✅ VPN peers created successfully!")            
+            #print("Response:", response.json())
         else:
             print("❌ Error creating VPN peers:")
             print("Response:", response.text)
@@ -99,7 +101,7 @@ if __name__ == "__main__":
     # Test the conversion function
 
     peer_count = int(input("Number of peers to create: "))
-    peer_name = input("Peer name (default is count): ") or "peer"
+    peer_name = input("Peer name prefix: ")
     template = load_template()
     peers = []
     
